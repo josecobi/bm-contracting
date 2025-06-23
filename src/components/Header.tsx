@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import CTAButton from './CTAButton'
 import { Menu, X } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+import  Image  from 'next/image'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -56,8 +57,16 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-gray-900">
-            BM Contracting
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src={isScrolled || !isHome ? '/bm-logo-light.svg' : '/bm-logo-dark.svg'}
+              alt="BM Contracting Logo"
+              width={40}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
+            <span className="sr-only">BM Contracting</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -77,7 +86,11 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-gray-700 hover:text-gray-900 transition"
+            className={`md:hidden transition ${
+              isScrolled || !isHome
+                ? 'text-gray-700 hover:text-gray-900'
+                : 'text-white hover:text-gray-200'
+            }`}
             aria-label="Toggle menu"
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}

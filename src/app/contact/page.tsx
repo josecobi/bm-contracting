@@ -96,8 +96,9 @@ export default function Contact() {
 
       {/* Google Map */}
 <section className="px-4 pb-20">
-  <div className="max-w-6xl mx-auto">
+  <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-md">
     <iframe
+     className="absolute top-0 left-0 w-full h-full border-0"
       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6344833.592857416!2d-77.11314!3d39.0594721!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cde53623a6c3%3A0xd83c4d6003aae6dd!2sBM%20Contractors%20LLP!5e0!3m2!1sen!2sus!4v1750700973379!5m2!1sen!2sus"
       width="600"
       height="450"

@@ -20,7 +20,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-semibold">Our Story</h2>
           <p className="mt-6 text-lg md:text-xl">
-            BM Contracting has been serving the local community for over 10 years. We specialize in home remodeling,
+            BM Contracting has been serving the local community for over 20 years. We specialize in home remodeling,
             renovation, and construction services that transform spaces into personalized works of art.
           </p>
         </div>

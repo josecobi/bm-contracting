@@ -7,25 +7,25 @@ const steps = [
     title: '1. Consultation',
     description:
       'We start with a personal consultation to understand your needs, style, and budget.',
-    icon: <FaPhoneAlt className="text-3xl text-primary" />,
+    icon: <FaPhoneAlt className="text-3xl text-green-800" />,
   },
   {
     title: '2. Design & Plan',
     description:
       'Our design team crafts a tailored plan and timeline for your project.',
-    icon: <FaPencilRuler className="text-3xl text-primary" />,
+    icon: <FaPencilRuler className="text-3xl text-green-800" />,
   },
   {
     title: '3. Build & Renovate',
     description:
       'Our skilled craftsmen bring the design to life with quality and precision.',
-    icon: <FaHammer className="text-3xl text-primary" />,
+    icon: <FaHammer className="text-3xl text-green-800" />,
   },
   {
     title: '4. Enjoy Your Space',
     description:
       'We walk through the final result with you — satisfaction guaranteed.',
-    icon: <FaSmile className="text-3xl text-primary" />,
+    icon: <FaSmile className="text-3xl text-green-800" />,
   },
 ]
 

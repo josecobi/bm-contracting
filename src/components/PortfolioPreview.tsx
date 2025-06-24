@@ -39,7 +39,7 @@ export default function PortfolioPreview() {
             Recent Projects
           </h2>
           <p className="mt-2 text-gray-600 text-lg">
-            See how we’ve transformed our clients’ spaces.
+            See how we&apos;ve transformed our clients&apos; spaces.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function PortfolioPreview() {
         <div className="mt-10 text-center">
           <Link
             href="/portfolio"
-            className="inline-block bg-gray-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-gray-500/90 transition"
+            className="inline-block bg-gray-900 text-white font-semibold px-6 py-3 rounded-full hover:bg-gray-700 transition"
           >
             View Full Portfolio
           </Link>

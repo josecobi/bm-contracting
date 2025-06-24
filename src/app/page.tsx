@@ -1,3 +1,4 @@
+import CTASection from "@/components/CTASection";
 import Hero from "@/components/Hero";
 import PortfolioPreview from "@/components/PortfolioPreview";
 import Process from "@/components/Process";
@@ -14,6 +15,12 @@ export default function Home() {
       <PortfolioPreview /> 
       <Testimonials /> 
       <Process /> 
+       <CTASection
+        title="Get Started with Your Dream Renovation"
+        description="From kitchens to basements, BM Contracting is ready to help you create something amazing."
+        buttonText="Request a Quote"
+        buttonHref="/contact"
+      />
        
     </>
   );

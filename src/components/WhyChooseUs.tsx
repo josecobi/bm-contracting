@@ -6,32 +6,32 @@ const features = [
   {
     title: 'Licensed & Insured',
     description: 'We meet all regulations and carry full insurance for peace of mind.',
-    icon: <ShieldCheck size={32} className="text-primary" />,
+    icon: <ShieldCheck size={32} className="text-green-800" />,
   },
   {
     title: '20+ Years Experience',
     description: 'Proven expertise in residential remodeling and renovation projects.',
-    icon: <Star size={32} className="text-primary" />,
+    icon: <Star size={32} className="text-green-800" />,
   },
   {
     title: 'Satisfaction Guarantee',
     description: 'We stand behind our work — your happiness is our priority.',
-    icon: <BadgeCheck size={32} className="text-primary" />,
+    icon: <BadgeCheck size={32} className="text-green-800" />,
   },
   {
     title: 'Craftsmanship',
     description: 'Every detail matters. We deliver high-quality, lasting results.',
-    icon: <Wrench size={32} className="text-primary" />,
+    icon: <Wrench size={32} className="text-green-800" />,
   },
   {
     title: 'Trusted Locally',
     description: 'A reputation built on referrals and repeat clients in our community.',
-    icon: <Users size={32} className="text-primary" />,
+    icon: <Users size={32} className="text-green-800" />,
   },
   {
     title: 'Transparent Pricing',
     description: 'No hidden costs. Clear estimates and fair pricing from the start.',
-    icon: <DollarSign size={32} className="text-primary" />,
+    icon: <DollarSign size={32} className="text-green-800" />,
   },
 ]
 

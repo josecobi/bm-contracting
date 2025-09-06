@@ -31,7 +31,7 @@ export const serviceCategories = [
   {
     category: "Concrete & Outdoor Surfaces",
     services: ["Concrete", "Pressure wash", "Windows"],
-    imageSrc: "/portfolio/before-after/concrete-outdoor.jpg"
+    imageSrc: "/portfolio/before-after/concrete-outdoor.webp"
   }
 ];
 

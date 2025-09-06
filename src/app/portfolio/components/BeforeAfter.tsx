@@ -37,12 +37,20 @@ export default function BeforeAfterShowcase() {
 
 function ProjectComparison({ project, isFirst, showAnimation }: { project: typeof projects[number], isFirst: boolean, showAnimation: boolean }) {
   const [carouselIndex, setCarouselIndex] = useState(0)
+  const [hasInteracted, setHasInteracted] = useState(false)
 
   const captions = ['Before', 'After']
   const images = [project.before, project.after]
 
-  const nextImage = () => setCarouselIndex((carouselIndex + 1) % 2)
-  const prevImage = () => setCarouselIndex((carouselIndex + 1) % 2)
+  const nextImage = () => {
+    setCarouselIndex((carouselIndex + 1) % 2)
+    setHasInteracted(true)
+  }
+
+  const prevImage = () => {
+    setCarouselIndex((carouselIndex + 1) % 2)
+    setHasInteracted(true)
+  }
 
   return (
     <div className="flex flex-col items-center relative">
@@ -65,13 +73,13 @@ function ProjectComparison({ project, isFirst, showAnimation }: { project: typeo
         {/* Navigation arrows */}
         <button
           onClick={prevImage}
-          className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 p-1 rounded-full text-white cursor-pointer ${isFirst && showAnimation ? 'animate-pulse ' : ''}`}
+          className={`absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 p-1 rounded-full text-white cursor-pointer ${isFirst && showAnimation && !hasInteracted ? 'animate-pulse ' : ''}`}
         >
           <ChevronLeft size={20} />
         </button>
         <button
           onClick={nextImage}
-          className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 p-1 rounded-full text-white cursor-pointer ${isFirst && showAnimation ? 'animate-pulse' : ''}`}
+          className={`absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 p-1 rounded-full text-white cursor-pointer ${isFirst && showAnimation && !hasInteracted ? 'animate-pulse' : ''}`}
         >
           <ChevronRight size={20} />
         </button>

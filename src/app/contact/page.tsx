@@ -73,21 +73,21 @@ export default function Contact() {
               <Phone className="text-green-700 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Phone</h3>
-                <p>(123) 456-7890</p>
+                <p>(301)-351-5379</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <Mail className="text-green-700 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Email</h3>
-                <p>info@bmcontracting.com</p>
+                <p>bm.ubarahona@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <MapPin className="text-green-700 mt-1" />
               <div>
                 <h3 className="font-semibold text-lg">Location</h3>
-                <p>12346 Wilkins Ave, Rockville, MD 20852</p>
+                <p></p>
               </div>
             </div>
           </div>

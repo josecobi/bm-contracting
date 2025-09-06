@@ -2,23 +2,39 @@
 
 import Image from 'next/image'
 
-export const services = [
+export const serviceCategories = [
   {
-    title: 'Kitchen Remodeling',
-    img: '/services/kitchen.jpg', // placeholder file to be saved in public/images/
-    description: 'Modern, functional kitchens tailored to your style and needs.',
+    category: "Interior Remodeling",
+    services: ["Living Room", "Bathroom", "Kitchen"],
+    imageSrc: "/services/bathroom.jpg"
   },
   {
-    title: 'Bathroom Renovation',
-    img: '/services/bathroom.jpg',
-    description: 'Luxury and comfort meet in your refreshed bathroom space.',
+    category: "Carpentry & Woodwork",
+    services: ["Carpentry", "Doors", "Decks", "Fences"],
+    imageSrc: "/services/carpentry.jpg"
   },
   {
-    title: 'Carpentry & Cabinetry',
-    img: '/services/carpentry.jpg',
-    description: 'Beautiful patios, decks, and more to enhance your outdoor life.',
+    category: "Flooring & Wall Finishes",
+    services: ["Flooring", "Drywall", "Plaster", "Painting"],
+    imageSrc: "/portfolio/before-after/basement-after.webp"
   },
-]
+  {
+    category: "Roofing & Exterior Protection",
+    services: ["Roofing", "Siding", "Gutters", "Downspouts", "Waterproofing"],
+    imageSrc: "/portfolio/before-after/deck-after.webp"
+  },
+  {
+    category: "Plumbing & Electrical",
+    services: ["Plumbing", "Electrical", "Insulation"],
+    imageSrc: "/portfolio/before-after/bathroom-after.webp"
+  },
+  {
+    category: "Concrete & Outdoor Surfaces",
+    services: ["Concrete", "Pressure wash", "Windows"],
+    imageSrc: "/portfolio/before-after/concrete-outdoor.jpg"
+  }
+];
+
 
 export default function Services() {
   return (
@@ -34,19 +50,19 @@ export default function Services() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((svc) => (
-            <div key={svc.title} className="relative group rounded-2xl overflow-hidden shadow-lg">
+          {serviceCategories.map((svc) => (
+            <div key={svc.category} className="relative group rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src={svc.img}
-                alt={svc.title}
+                src={svc.imageSrc}
+                alt={svc.category}
                 width={400}
                 height={250}
                 className="object-cover w-full h-56 transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-xl font-semibold">{svc.title}</h3>
-                <p className="mt-2 text-sm">{svc.description}</p>
+                <h3 className="text-xl font-semibold">{svc.category}</h3>
+                <p className="mt-2 text-sm">{svc.services.join(', ')}</p>
               </div>
             </div>
           ))}

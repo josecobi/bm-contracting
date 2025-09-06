@@ -20,8 +20,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-semibold">Our Story</h2>
           <p className="mt-6 text-lg md:text-xl">
-            BM Contracting has been serving the local community for over 20 years. We specialize in home remodeling,
-            renovation, and construction services that transform spaces into personalized works of art.
+            At BM Contracting, we believe every renovation is an opportunity to bring new life to a space. With years of experience and a commitment to quality craftsmanship, our team works closely with clients to design and build renovations that reflect their vision, style, and needs. From small updates to full remodels, we prioritize reliability, transparency, and attention to detail, ensuring every project is completed with excellence.
           </p>
         </div>
       </section>

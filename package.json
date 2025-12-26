@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.18.1",
     "lucide-react": "^0.522.0",
-    "next": "15.3.4",
+    "masonry-layout": "^4.2.2",
+    "next": "^15.5.9",
     "react": "^19.0.0",
     "react-compare-image": "^3.5.5",
     "react-dom": "^19.0.0",

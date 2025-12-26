@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { SiFacebook, SiInstagram } from 'react-icons/si'
 import { MdEmail } from 'react-icons/md'
 
@@ -17,7 +18,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Business Info */}
         <div>
-          <h2 className="text-xl font-bold mb-2">BM Contracting</h2>
+          <Link href="/" className="inline-block mb-4">
+            <Image
+              src="/bm-logo-dark.svg"
+              alt="BM Contracting Logo"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
+          </Link>
           <p className="text-sm text-gray-400">
             Transforming homes with precision and passion.
           </p>

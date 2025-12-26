@@ -40,7 +40,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     id: 'living',
     title: 'Open-Concept Living',
     images: [
-      { src: '/portfolio/portfolio-gallery/jpg/living-room-000.jpg', alt: 'Open Living Space', width: 1400, height: 900, span: 2 },
+      { src: '/portfolio/portfolio-gallery/jpg/livingroom000.jpg', alt: 'Open Living Space', width: 1400, height: 900, span: 2 },
     ],
   },
   {

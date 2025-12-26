@@ -18,7 +18,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     id: 'kitchen',
     title: 'Modern Kitchen Renovation',
     images: [
-      { src: '/portfolio/portfolio-gallery/jpg/kitchen-0000.jpg', alt: 'Modern Kitchen', width: 1200, height: 800, span: 3 },
+      { src: '/portfolio/portfolio-gallery/jpg/kitchen-0000.jpg', alt: 'Modern Kitchen', width: 1200, height: 800, span: 4 },
       { src: '/portfolio/portfolio-gallery/jpg/kitchen-002.jpg', alt: 'Kitchen Cabinets', width: 1200, height: 800, span: 2 },
       { src: '/portfolio/portfolio-gallery/jpg/kitchen-001.jpg', alt: 'Kitchen Detail', width: 800, height: 1000, span: 2 },
       // { src: '/portfolio/portfolio-gallery/jpg/kitchen-012.jpg', alt: 'Kitchen Counter', width: 800, height: 1000 },

@@ -3,9 +3,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Masonry from 'masonry-layout'
 import { Lightbox } from '@/components/Lightbox'
 import { PortfolioCategory } from './data'
+import type Masonry from 'masonry-layout'
 
 interface GallerySectionProps {
   category: PortfolioCategory
@@ -34,44 +34,60 @@ export default function GallerySection({ category }: GallerySectionProps) {
   useEffect(() => {
     if (!gridRef.current) return
 
-    const msnryInstance = new Masonry(gridRef.current, {
-      itemSelector: '.grid-item',
-      columnWidth,
-      gutter,
-      percentPosition: false,
-      horizontalOrder: false,
-      fitWidth: true,
-    })
+    // Dynamically import Masonry only on client side
+    import('masonry-layout').then((MasonryModule) => {
+      const Masonry = MasonryModule.default
 
-    msnryRef.current = msnryInstance
-
-    // Re-layout after image load
-    const imgs = gridRef.current.querySelectorAll('img')
-    imgs.forEach((img) => {
-      img.addEventListener('load', () => {
-        msnryRef.current?.layout?.()
+      const msnryInstance = new Masonry(gridRef.current!, {
+        itemSelector: '.grid-item',
+        columnWidth,
+        gutter,
+        percentPosition: false,
+        horizontalOrder: false,
+        fitWidth: true,
       })
-    })
 
-    // Handle window resize with debounce
-    let resizeTimer: NodeJS.Timeout
-    const handleResize = () => {
-      clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(() => {
-        requestAnimationFrame(() => {
-          msnryRef.current?.reloadItems?.()
+      msnryRef.current = msnryInstance
+
+      // Re-layout after image load
+      const imgs = gridRef.current!.querySelectorAll('img')
+      imgs.forEach((img) => {
+        img.addEventListener('load', () => {
           msnryRef.current?.layout?.()
         })
-      }, 100)
-    }
-    window.addEventListener('resize', handleResize)
+      })
 
-    // Cleanup
+      // Handle window resize with debounce
+      let resizeTimer: NodeJS.Timeout
+      const handleResize = () => {
+        clearTimeout(resizeTimer)
+        resizeTimer = setTimeout(() => {
+          requestAnimationFrame(() => {
+            msnryRef.current?.reloadItems?.()
+            msnryRef.current?.layout?.()
+          })
+        }, 100)
+      }
+      window.addEventListener('resize', handleResize)
+
+      // Store cleanup function
+      const cleanup = () => {
+        clearTimeout(resizeTimer)
+        window.removeEventListener('resize', handleResize)
+        msnryRef.current?.destroy?.()
+        msnryRef.current = null
+      }
+
+      // Return cleanup
+      return cleanup
+    })
+
+    // Cleanup if component unmounts before Masonry loads
     return () => {
-      clearTimeout(resizeTimer)
-      window.removeEventListener('resize', handleResize)
-      msnryRef.current?.destroy?.()
-      msnryRef.current = null
+      if (msnryRef.current) {
+        msnryRef.current?.destroy?.()
+        msnryRef.current = null
+      }
     }
   }, [category.images])
 

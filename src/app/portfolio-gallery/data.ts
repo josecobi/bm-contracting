@@ -31,9 +31,9 @@ export const portfolioCategories: PortfolioCategory[] = [
     id: 'bathroom',
     title: 'Luxury Bathroom Remodel',
     images: [
-      { src: '/portfolio/portfolio-gallery/jpg/bathroom-000.jpg', alt: 'Luxury Bathroom', width: 800, height: 1000, span: 3 },
+      { src: '/portfolio/portfolio-gallery/jpg/bathroom-000.jpg', alt: 'Luxury Bathroom', width: 800, height: 1000, span: 4 },
       { src: '/portfolio/portfolio-gallery/jpg/bathroom-001.jpg', alt: 'Bathroom Tile', width: 1200, height: 800, span: 2 },
-      { src: '/portfolio/portfolio-gallery/jpg/bathroom-002.jpg', alt: 'Bathroom Fixtures', width: 800, height: 1000, span: 3 },
+      { src: '/portfolio/portfolio-gallery/jpg/bathroom-002.jpg', alt: 'Bathroom Fixtures', width: 800, height: 1000, span: 2 },
     ],
   },
   {

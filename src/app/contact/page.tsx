@@ -2,6 +2,7 @@
 
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { ContactPageSchema, BreadcrumbSchema } from '@/components/StructuredData'
 
 export default function Contact() {
   const [isMobile, setIsMobile] = useState(false)
@@ -15,6 +16,13 @@ export default function Contact() {
 
   return (
     <main className="bg-gray-50 min-h-screen">
+      {/* Structured Data */}
+      <ContactPageSchema />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'Contact', url: '/contact/' }
+      ]} />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white overflow-hidden">
         {/* Background Pattern - Simplified for mobile */}

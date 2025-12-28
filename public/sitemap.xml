@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://bmcontracting-llc.com/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://bmcontracting-llc.com/about/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://bmcontracting-llc.com/contact/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Portfolio Gallery Page -->
+  <url>
+    <loc>https://bmcontracting-llc.com/portfolio-gallery/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <!-- Sample Portfolio Images -->
+    <image:image>
+      <image:loc>https://bmcontracting-llc.com/portfolio/portfolio-gallery/jpg/kitchen-001.jpg</image:loc>
+      <image:caption>Modern kitchen renovation by BM Contracting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bmcontracting-llc.com/portfolio/portfolio-gallery/jpg/bathroom-001.jpg</image:loc>
+      <image:caption>Luxury bathroom remodel by BM Contracting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bmcontracting-llc.com/portfolio/portfolio-gallery/jpg/basement-001.jpg</image:loc>
+      <image:caption>Finished basement by BM Contracting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bmcontracting-llc.com/portfolio/portfolio-gallery/jpg/flooring-001.jpg</image:loc>
+      <image:caption>Professional flooring installation by BM Contracting</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Portfolio Before/After Page -->
+  <url>
+    <loc>https://bmcontracting-llc.com/portfolio/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <!-- Before/After Images -->
+    <image:image>
+      <image:loc>https://bmcontracting-llc.com/portfolio/before-after/jpg/kitchen-before.jpg</image:loc>
+      <image:caption>Kitchen before renovation - BM Contracting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bmcontracting-llc.com/portfolio/before-after/jpg/kitchen-after.jpg</image:loc>
+      <image:caption>Kitchen after renovation - BM Contracting</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

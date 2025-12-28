@@ -1,15 +1,47 @@
+import type { Metadata } from "next";
 import { portfolioCategories } from './data'
 import GallerySection from './GallerySection'
 import CategoryNav from './CategoryNav'
+import { BreadcrumbSchema, ImageGallerySchema } from '@/components/StructuredData'
+import { generateMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Portfolio Gallery | BM Contracting',
-  description: 'Browse our complete portfolio of renovation projects.',
-}
+export const metadata: Metadata = generateMetadata({
+  title: 'Portfolio Gallery - View Our Remodeling Projects',
+  description: 'Explore BM Contracting LLC\'s portfolio of stunning home renovation projects in Maryland. Browse our work in kitchen remodels, bathroom renovations, basement finishing, and more. 50+ completed projects.',
+  keywords: [
+    'remodeling portfolio Maryland',
+    'kitchen renovation gallery',
+    'bathroom remodel photos',
+    'home renovation examples',
+    'contractor portfolio Maryland',
+    'before after remodeling',
+  ],
+  canonical: '/portfolio-gallery/',
+  ogImage: '/portfolio/portfolio-gallery/jpg/kitchen-003.jpg',
+  ogImageAlt: 'BM Contracting Portfolio Gallery - Home Remodeling Projects',
+})
 
 export default function PortfolioGalleryPage() {
   return (
     <main className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Schema */}
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'Portfolio Gallery', url: '/portfolio-gallery/' }
+      ]} />
+
+      {/* Image Gallery Schema */}
+      <ImageGallerySchema
+        name="BM Contracting Home Remodeling Portfolio"
+        description="Browse our collection of professional home renovation projects including kitchens, bathrooms, basements, and more"
+        images={portfolioCategories.flatMap(cat =>
+          cat.images.slice(0, 10).map(img => ({
+            url: img.src,
+            caption: `${cat.title} - ${img.alt}`
+          }))
+        )}
+      />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-700 overflow-hidden">
         {/* Background Pattern */}

@@ -2,10 +2,18 @@
 
 import CTAButton from '@/components/CTAButton'
 import { motion } from 'framer-motion'
+import { AboutPageSchema, BreadcrumbSchema } from '@/components/StructuredData'
 
 export default function About() {
   return (
     <main className="bg-gray-50 min-h-screen">
+      {/* Structured Data */}
+      <AboutPageSchema />
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: '/' },
+        { name: 'About', url: '/about/' }
+      ]} />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white overflow-hidden">
         {/* Background Pattern */}

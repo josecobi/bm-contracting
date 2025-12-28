@@ -60,7 +60,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
         gutter,
         percentPosition: false,
         horizontalOrder: false,
-        fitWidth: false,
+        fitWidth: true,
       })
 
       msnryRef.current = msnryInstance
@@ -221,13 +221,12 @@ export default function GallerySection({ category }: GallerySectionProps) {
       </section>
 
       {/* Desktop: Masonry Grid */}
-      <section className="hidden md:block mx-auto">
+      <section className="hidden md:block">
         <div
           ref={gridRef}
-          className="relative flex justify-center flex-wrap"
+          className="relative"
           style={{
             margin: '0 auto',
-            maxWidth: '100vw',
           }}
         >
           <div className="grid-sizer" style={{ width: columnWidth }} />

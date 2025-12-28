@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { SiFacebook, SiInstagram } from 'react-icons/si'
 import { MdEmail } from 'react-icons/md'
 
 export default function Footer() {

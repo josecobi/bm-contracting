@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Lightbox } from '@/components/Lightbox'
@@ -23,14 +23,14 @@ export default function GallerySection({ category }: GallerySectionProps) {
   const gutter = 16
 
   // Calculate item widths based on span
-  const calculateItemWidths = () => {
+  const calculateItemWidths = useCallback(() => {
     const widths: Record<number, number> = {}
     category.images.forEach((img, i) => {
       const span = img.span || 1
       widths[i] = columnWidth * span + gutter * (span - 1)
     })
     setItemWidths(widths)
-  }
+  }, [category.images, columnWidth, gutter])
 
   const handleImageClick = (index: number) => {
     setSelectedIndex(index)
@@ -44,7 +44,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
   // Calculate initial widths
   useEffect(() => {
     calculateItemWidths()
-  }, [category.images])
+  }, [calculateItemWidths])
 
   // Masonry setup for desktop
   useEffect(() => {

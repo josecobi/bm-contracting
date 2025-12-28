@@ -50,7 +50,7 @@ export default function Footer() {
           <h3 className="font-semibold mb-1">Get in Touch</h3>
          <div className="flex gap-4 mt-1">
             <a
-                href="mailto:info@bmcontracting.com"
+                href="mailto:bm.ubarahona@gmail.com"
                 className="hover:text-white"
                 aria-label="Email"
             >

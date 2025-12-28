@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="bg-gray-50 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link
-              href="/blog"
+              href="/blog/"
               className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-medium transition-colors"
             >
               <FaArrowLeft size={14} />
@@ -173,7 +173,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   to help you every step of the way.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   className="inline-block bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
                 >
                   Schedule Free Consultation

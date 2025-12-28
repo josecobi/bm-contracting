@@ -46,7 +46,7 @@ export default function BlogPage() {
               Maryland. We&apos;re here to help bring your vision to life.
             </p>
             <Link
-              href="/contact"
+              href="/contact/"
               className="inline-block bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
             >
               Get Free Consultation

@@ -27,7 +27,7 @@ export default function StickyCTA() {
       </div> */}
       <div className="flex items-center gap-2 ml-auto">
         <Link
-          href="/contact"
+          href="/contact/"
           className="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow hover:bg-gray-100 transition"
         >
           Get a Free Estimate

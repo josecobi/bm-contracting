@@ -7,9 +7,10 @@ import { MdEmail } from 'react-icons/md'
 export default function Footer() {
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Portfolio', href: '/portfolio-gallery' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Portfolio', href: '/portfolio-gallery/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'About', href: '/about/' },
+    { label: 'Contact', href: '/contact/' },
   ]
 
   return (

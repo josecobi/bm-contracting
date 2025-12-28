@@ -68,4 +68,48 @@
     </image:image>
   </url>
 
+  <!-- Blog Listing Page -->
+  <url>
+    <loc>https://bmcontracting-llc.com/blog/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://bmcontracting-llc.com/blog/kitchen-remodeling-cost-guide-maryland/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcontracting-llc.com/blog/bathroom-remodel-ideas-trends-2025/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcontracting-llc.com/blog/how-to-choose-contractor-maryland/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcontracting-llc.com/blog/basement-finishing-guide-maryland/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bmcontracting-llc.com/blog/flooring-options-maryland-homes/</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

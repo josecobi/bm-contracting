@@ -288,3 +288,91 @@ export function FAQSchema({ faqs }: { faqs: Array<{ question: string; answer: st
     />
   );
 }
+
+// BlogPosting Schema - For individual blog posts
+export function BlogPostingSchema({
+  title,
+  description,
+  slug,
+  date,
+  lastModified,
+  author,
+  featuredImage,
+  tags,
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  date: string;
+  lastModified?: string;
+  author: string;
+  featuredImage: string;
+  tags: string[];
+}) {
+  const imageUrl = featuredImage.startsWith('http')
+    ? featuredImage
+    : `${SITE_CONFIG.url}${featuredImage}`;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${SITE_CONFIG.url}/blog/${slug}/#blogpost`,
+    headline: title,
+    description,
+    image: imageUrl,
+    datePublished: date,
+    dateModified: lastModified || date,
+    author: {
+      '@type': 'Organization',
+      name: author,
+      url: SITE_CONFIG.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.business.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/bm-logo-dark.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_CONFIG.url}/blog/${slug}/`,
+    },
+    keywords: tags.join(', '),
+    articleSection: 'Home Improvement',
+    inLanguage: 'en-US',
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// Blog Schema - For blog listing page
+export function BlogSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${SITE_CONFIG.url}/blog/#blog`,
+    url: `${SITE_CONFIG.url}/blog/`,
+    name: `${SITE_CONFIG.business.name} Blog`,
+    description: 'Expert home remodeling tips, guides, and insights from Maryland\'s trusted contractor.',
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE_CONFIG.url}/#organization`,
+      name: SITE_CONFIG.business.name,
+    },
+    inLanguage: 'en-US',
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}

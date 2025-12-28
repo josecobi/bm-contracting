@@ -24,7 +24,7 @@ export default function Contact() {
       ]} />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-700 text-white overflow-hidden">
+      <section className="relative bg-linear-to-br from-green-900 via-green-800 to-green-700 text-white overflow-hidden">
         {/* Background Pattern - Simplified for mobile */}
         {!isMobile && (
           <div className="absolute inset-0 opacity-10">
@@ -35,7 +35,7 @@ export default function Contact() {
         )}
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-green-900/50 via-transparent to-transparent" />
 
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
@@ -50,7 +50,7 @@ export default function Contact() {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Get in <span className="bg-gradient-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">Touch</span>
+              Get in <span className="bg-linear-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">Touch</span>
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl text-green-50/90 max-w-3xl mx-auto leading-relaxed">
@@ -72,7 +72,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-green-700 to-green-500 mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-linear-to-r from-green-700 to-green-500 mx-auto rounded-full" />
           </div>
 
           {/* Contact Form - Commented out until client setup is ready */}
@@ -122,7 +122,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-green-700 to-green-600 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="w-full bg-linear-to-r from-green-700 to-green-600 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
                   Send Message
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export default function Contact() {
           <div className="flex justify-center">
             <div className="space-y-6 max-w-md w-full">
               <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex items-start space-x-4 md:hover:shadow-xl md:hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-700 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-linear-to-br from-green-700 to-green-600 rounded-xl flex items-center justify-center shrink-0">
                   <Phone className="text-white w-6 h-6" />
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export default function Contact() {
               </div>
 
               <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex items-start space-x-4 md:hover:shadow-xl md:hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-700 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-linear-to-br from-green-700 to-green-600 rounded-xl flex items-center justify-center shrink-0">
                   <Mail className="text-white w-6 h-6" />
                 </div>
                 <div>
@@ -161,7 +161,7 @@ export default function Contact() {
               </div>
 
               <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 flex items-start space-x-4 md:hover:shadow-xl md:hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-700 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-linear-to-br from-green-700 to-green-600 rounded-xl flex items-center justify-center shrink-0">
                   <MapPin className="text-white w-6 h-6" />
                 </div>
                 <div>
@@ -173,23 +173,23 @@ export default function Contact() {
               </div>
 
               {/* Additional Info Card */}
-              <div className="bg-gradient-to-br from-green-700 to-green-600 p-8 rounded-2xl shadow-xl text-white">
+              <div className="bg-linear-to-br from-green-700 to-green-600 p-8 rounded-2xl shadow-xl text-white">
                 <h3 className="font-bold text-xl mb-3">Why Choose Us?</h3>
                 <ul className="space-y-2 text-green-50">
                   <li className="flex items-center gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     Free Consultations
                   </li>
                   <li className="flex items-center gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     20+ Years Experience
                   </li>
                   <li className="flex items-center gap-2">
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     Quality Guaranteed
@@ -206,7 +206,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Find Us</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-green-700 to-green-500 mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-linear-to-r from-green-700 to-green-500 mx-auto rounded-full" />
           </div>
 
           <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-2xl shadow-2xl border-4 border-white">

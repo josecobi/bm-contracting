@@ -43,7 +43,7 @@ export default function PortfolioGalleryPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-900 via-green-800 to-green-700 overflow-hidden">
+      <section className="relative bg-linear-to-br from-green-900 via-green-800 to-green-700 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -52,7 +52,7 @@ export default function PortfolioGalleryPage() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-green-900/50 via-transparent to-transparent" />
 
         {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
@@ -67,7 +67,7 @@ export default function PortfolioGalleryPage() {
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Our <span className="bg-gradient-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">Portfolio</span>
+              Our <span className="bg-linear-to-r from-yellow-200 to-yellow-400 bg-clip-text text-transparent">Portfolio</span>
             </h1>
 
             {/* Subtitle */}
@@ -107,8 +107,8 @@ export default function PortfolioGalleryPage() {
       <CategoryNav categories={portfolioCategories} />
 
       {/* Gallery Sections */}
-      <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="py-20 px-4 bg-linear-to-b from-gray-50 to-white">
+        <div className="max-w-350 mx-auto">
           {portfolioCategories.map((category, index) => (
             <div key={category.id}>
               <GallerySection category={category} />
@@ -116,7 +116,7 @@ export default function PortfolioGalleryPage() {
               {/* Divider between categories (except last one) */}
               {index < portfolioCategories.length - 1 && (
                 <div className="my-20 flex items-center justify-center">
-                  <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent w-full max-w-md" />
+                  <div className="h-px bg-linear-to-r from-transparent via-gray-300 to-transparent w-full max-w-md" />
                 </div>
               )}
             </div>

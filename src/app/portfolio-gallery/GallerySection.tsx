@@ -132,7 +132,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           {category.title}
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-green-700 to-green-500 mx-auto rounded-full" />
+        <div className="w-24 h-1 bg-linear-to-r from-green-700 to-green-500 mx-auto rounded-full" />
       </motion.div>
 
       {/* Mobile: Single Column */}
@@ -167,7 +167,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
                 />
 
                 {/* Hover overlay with gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-active:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-60 group-active:opacity-80 transition-opacity duration-300" />
 
                 {/* Zoom icon */}
                 <div className="absolute top-4 right-4 z-20">
@@ -190,7 +190,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
 
                 {/* Caption if available */}
                 {img.caption && (
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/80 to-transparent">
                     <p className="text-white font-semibold text-sm">{img.caption}</p>
                   </div>
                 )}
@@ -204,7 +204,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
           <div className="flex justify-center mt-12">
             <motion.button
               onClick={loadMore}
-              className="group relative px-10 py-4 bg-gradient-to-r from-green-700 to-green-600 text-white font-bold rounded-full shadow-xl overflow-hidden"
+              className="group relative px-10 py-4 bg-linear-to-r from-green-700 to-green-600 text-white font-bold rounded-full shadow-xl overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -214,7 +214,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-r from-green-600 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.button>
           </div>
         )}
@@ -279,7 +279,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
                 />
 
                 {/* Hover overlay with gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 pointer-events-none" />
 
                 {/* Zoom icon */}
                 <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-90 pointer-events-none">
@@ -302,7 +302,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
 
                 {/* Caption if available */}
                 {img.caption && (
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-black/90 via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
                     <p className="text-white font-bold text-lg drop-shadow-lg">{img.caption}</p>
                   </div>
                 )}

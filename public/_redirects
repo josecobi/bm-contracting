@@ -1,0 +1,6 @@
+# Force HTTPS
+http://bmcontracting-llc.com/* https://bmcontracting-llc.com/:splat 301!
+http://www.bmcontracting-llc.com/* https://bmcontracting-llc.com/:splat 301!
+
+# Redirect www to apex
+https://www.bmcontracting-llc.com/* https://bmcontracting-llc.com/:splat 301!

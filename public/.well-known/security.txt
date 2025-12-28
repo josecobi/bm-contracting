@@ -1,0 +1,9 @@
+Contact: mailto:bm.ubarahona@gmail.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://bmcontracting-llc.com/.well-known/security.txt
+
+# BM Contracting LLC - Legitimate Home Remodeling Business
+# Licensed Maryland Home Improvement Contractor
+# MHIC License: [Your license number if available]
+# Serving Maryland since 2004

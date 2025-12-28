@@ -11,7 +11,7 @@ import { generateMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = generateMetadata({
   title: 'BM Contracting LLC - Expert Home Remodeling in Maryland',
-  description: 'Transform your home with BM Contracting LLC. Expert kitchen renovation, bathroom remodeling, flooring, deck construction, and basement finishing in Maryland. 15+ years experience. Free consultation!',
+  description: 'Transform your home with BM Contracting LLC. Expert kitchen renovation, bathroom remodeling, flooring, deck construction, and basement finishing in Maryland. 20+ years experience. Free consultation!',
   keywords: [
     'home remodeling Maryland',
     'kitchen renovation Maryland',

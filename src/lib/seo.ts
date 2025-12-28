@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
     state: 'Maryland',
     country: 'United States',
     yearEstablished: '2010',
-    yearsExperience: '15+',
+    yearsExperience: '20+',
 
     // Service areas
     serviceAreas: [
@@ -54,7 +54,7 @@ export const SITE_CONFIG = {
   // Default SEO settings
   defaultTitle: 'BM Contracting LLC - Expert Home Remodeling in Maryland',
   titleTemplate: '%s | BM Contracting LLC',
-  defaultDescription: 'Transform your home with BM Contracting LLC. Offering expert kitchen renovation, bathroom remodeling, flooring, and more in Maryland. 15+ years experience, quality guaranteed.',
+  defaultDescription: 'Transform your home with BM Contracting LLC. Offering expert kitchen renovation, bathroom remodeling, flooring, and more in Maryland. 20+ years experience, quality guaranteed.',
 
   // Default keywords
   keywords: [

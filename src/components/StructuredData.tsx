@@ -252,7 +252,7 @@ export function AboutPageSchema() {
     '@id': `${SITE_CONFIG.url}/about/#aboutpage`,
     url: `${SITE_CONFIG.url}/about/`,
     name: 'About BM Contracting LLC',
-    description: 'Learn about BM Contracting LLC, Maryland\'s trusted home remodeling contractor with 15+ years of experience.',
+    description: 'Learn about BM Contracting LLC, Maryland\'s trusted home remodeling contractor with 20+ years of experience.',
     mainEntity: {
       '@id': `${SITE_CONFIG.url}/#organization`,
     },

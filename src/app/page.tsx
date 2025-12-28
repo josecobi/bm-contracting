@@ -13,7 +13,7 @@ export default function Home() {
       <Services />
       <WhyChooseUs /> 
       <PortfolioPreview /> 
-      <Testimonials /> 
+      {/* <Testimonials />  */}
       <Process /> 
        <CTASection
         title="Get Started with Your Dream Renovation"

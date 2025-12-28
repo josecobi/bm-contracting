@@ -17,9 +17,20 @@ export default function GallerySection({ category }: GallerySectionProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [visibleCount, setVisibleCount] = useState(6)
+  const [itemWidths, setItemWidths] = useState<Record<number, number>>({})
 
   const columnWidth = 300
   const gutter = 16
+
+  // Calculate item widths based on span
+  const calculateItemWidths = () => {
+    const widths: Record<number, number> = {}
+    category.images.forEach((img, i) => {
+      const span = img.span || 1
+      widths[i] = columnWidth * span + gutter * (span - 1)
+    })
+    setItemWidths(widths)
+  }
 
   const handleImageClick = (index: number) => {
     setSelectedIndex(index)
@@ -29,6 +40,11 @@ export default function GallerySection({ category }: GallerySectionProps) {
   const loadMore = () => {
     setVisibleCount(prev => Math.min(prev + 6, category.images.length))
   }
+
+  // Calculate initial widths
+  useEffect(() => {
+    calculateItemWidths()
+  }, [category.images])
 
   // Masonry setup for desktop
   useEffect(() => {
@@ -40,11 +56,11 @@ export default function GallerySection({ category }: GallerySectionProps) {
 
       const msnryInstance = new Masonry(gridRef.current!, {
         itemSelector: '.grid-item',
-        columnWidth,
+        columnWidth: '.grid-sizer',
         gutter,
         percentPosition: false,
         horizontalOrder: false,
-        fitWidth: true,
+        fitWidth: false,
       })
 
       msnryRef.current = msnryInstance
@@ -62,6 +78,15 @@ export default function GallerySection({ category }: GallerySectionProps) {
       const handleResize = () => {
         clearTimeout(resizeTimer)
         resizeTimer = setTimeout(() => {
+          // Update item widths directly in DOM before layout
+          const items = gridRef.current?.querySelectorAll('.grid-item')
+          items?.forEach((item, i) => {
+            const img = category.images[i]
+            const span = img?.span || 1
+            const width = columnWidth * span + gutter * (span - 1)
+            ;(item as HTMLElement).style.width = `${width}px`
+          })
+
           requestAnimationFrame(() => {
             msnryRef.current?.reloadItems?.()
             msnryRef.current?.layout?.()
@@ -207,7 +232,6 @@ export default function GallerySection({ category }: GallerySectionProps) {
         >
           <div className="grid-sizer" style={{ width: columnWidth }} />
           {category.images.map((img, i) => {
-            const span = img.span || 1
             const delay = i * 0.1
 
             return (
@@ -215,7 +239,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
                 key={i}
                 className="grid-item mb-4 rounded-2xl shadow-xl overflow-hidden relative group cursor-pointer border border-gray-200"
                 style={{
-                  width: columnWidth * span + gutter * (span - 1),
+                  width: itemWidths[i] || columnWidth,
                   maxWidth: '100%',
                 }}
                 initial={{

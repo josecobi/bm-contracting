@@ -8,7 +8,7 @@ import { MdEmail } from 'react-icons/md'
 export default function Footer() {
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Portfolio', href: '/portfolio' },
+    { label: 'Portfolio', href: '/portfolio-gallery' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ]
@@ -57,7 +57,7 @@ export default function Footer() {
             >
                 <MdEmail size={20} />
             </a>
-            <a
+            {/* <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +74,7 @@ export default function Footer() {
                 aria-label="Instagram"
             >
                 <SiInstagram size={20} />
-            </a>
+            </a> */}
             </div>
         </div>
       </div>

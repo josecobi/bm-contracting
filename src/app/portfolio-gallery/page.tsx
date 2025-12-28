@@ -51,7 +51,7 @@ export default function PortfolioGalleryPage() {
               </div>
               <div className="w-px h-12 bg-white/20 hidden sm:block" />
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">15+</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">20+</div>
                 <div className="text-sm md:text-base text-green-100/80">Years Experience</div>
               </div>
               <div className="w-px h-12 bg-white/20 hidden sm:block" />

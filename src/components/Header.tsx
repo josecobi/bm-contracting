@@ -55,6 +55,10 @@ export default function Header() {
 
   return (
     <header className={headerClasses}>
+      {/* Preload both logos for instant switching */}
+      <link rel="preload" as="image" href="/bm-logo-dark.svg" />
+      <link rel="preload" as="image" href="/bm-logo-light.svg" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

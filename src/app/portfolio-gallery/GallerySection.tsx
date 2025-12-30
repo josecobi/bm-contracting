@@ -16,7 +16,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
   const msnryRef = useRef<Masonry | null>(null)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [visibleCount, setVisibleCount] = useState(6)
+  const [visibleCount, setVisibleCount] = useState(12)
   const [itemWidths, setItemWidths] = useState<Record<number, number>>({})
 
   const columnWidth = 300
@@ -38,7 +38,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
   }
 
   const loadMore = () => {
-    setVisibleCount(prev => Math.min(prev + 6, category.images.length))
+    setVisibleCount(prev => Math.min(prev + 12, category.images.length))
   }
 
   // Calculate initial widths
@@ -121,7 +121,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
 
   // Re-layout masonry when more images are loaded
   useEffect(() => {
-    if (msnryRef.current && visibleCount > 6) {
+    if (msnryRef.current && visibleCount > 12) {
       // Small delay to allow images to render
       setTimeout(() => {
         msnryRef.current?.reloadItems?.()
@@ -150,21 +150,18 @@ export default function GallerySection({ category }: GallerySectionProps) {
       <section className="md:hidden px-4">
         <div className="flex flex-col gap-6 max-w-2xl mx-auto">
           {visibleImages.map((img, i) => {
-            const delay = i * 0.1
-
             return (
               <motion.div
                 key={i}
                 className="relative w-full rounded-2xl shadow-xl overflow-hidden cursor-pointer group border border-gray-200"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{
-                  duration: 0.5,
-                  delay: delay > 0.6 ? 0 : delay,
+                  duration: 0.3,
                   ease: 'easeOut',
                 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.05 }}
                 onClick={() => handleImageClick(i)}
               >
                 <Image
@@ -173,8 +170,10 @@ export default function GallerySection({ category }: GallerySectionProps) {
                   width={img.width}
                   height={img.height}
                   className="w-full h-auto object-cover"
-                  loading={i < 3 ? "eager" : "lazy"}
-                  priority={i < 3}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  priority={i < 2}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   sizes="100vw"
                 />
 
@@ -243,8 +242,6 @@ export default function GallerySection({ category }: GallerySectionProps) {
         >
           <div className="grid-sizer" style={{ width: columnWidth }} />
           {visibleImages.map((img, i) => {
-            const delay = i * 0.1
-
             return (
               <motion.div
                 key={i}
@@ -255,30 +252,25 @@ export default function GallerySection({ category }: GallerySectionProps) {
                 }}
                 initial={{
                   opacity: 0,
-                  y: 20,
+                  y: 10,
                 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
                 }}
                 whileHover={{
-                  scale: 1.02,
-                  y: -8,
-                  transition: { duration: 0.3 },
+                  scale: 1.01,
+                  y: -4,
+                  transition: { duration: 0.2 },
                 }}
                 whileTap={{
                   scale: 0.98,
                 }}
                 transition={{
-                  type: 'spring',
-                  stiffness: 80,
-                  damping: 18,
-                  mass: 1.2,
-                  duration: 0.5,
-                  delay,
+                  duration: 0.3,
                   ease: 'easeOut',
                 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.05 }}
                 onClick={() => handleImageClick(i)}
               >
                 <Image
@@ -287,8 +279,10 @@ export default function GallerySection({ category }: GallerySectionProps) {
                   width={img.width}
                   height={img.height}
                   className="w-full h-auto object-cover"
-                  loading={i < 3 ? "eager" : "lazy"}
-                  priority={i < 3}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  priority={i < 2}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   sizes="(min-width: 768px) 600px, 100vw"
                 />
 

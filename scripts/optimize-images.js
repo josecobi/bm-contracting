@@ -11,6 +11,7 @@ const CONFIG = {
   // Quality settings
   jpegQuality: 85,
   webpQuality: 80,
+  priorityImageQuality: 70, // Lower quality for priority images (faster load)
 
   // Directories
   inputDir: path.join(__dirname, '../public/portfolio'),
@@ -77,16 +78,20 @@ async function optimizeImage(filePath, relativePath) {
     if (CONFIG.convertToWebP) {
       const webpPath = filePath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
+      // Use lower quality for priority images (first image in portfolio)
+      const isPriorityImage = relativePath.includes('kitchen-0000');
+      const quality = isPriorityImage ? CONFIG.priorityImageQuality : CONFIG.webpQuality;
+
       await image
         .resize(resizeOptions)
-        .webp({ quality: CONFIG.webpQuality })
+        .webp({ quality })
         .toFile(webpPath);
 
       const sizeAfter = getFileSizeMB(webpPath);
       const savings = ((sizeBefore - sizeAfter) / sizeBefore * 100).toFixed(1);
 
-      console.log(`✅ ${relativePath} → WebP`);
-      console.log(`   ${sizeBefore}MB → ${sizeAfter}MB (saved ${savings}%)`);
+      console.log(`✅ ${relativePath} → WebP ${isPriorityImage ? '(priority)' : ''}`);
+      console.log(`   ${sizeBefore}MB → ${sizeAfter}MB (saved ${savings}%) @ ${quality}% quality`);
 
       // Delete original after successful conversion
       fs.unlinkSync(filePath);

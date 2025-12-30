@@ -114,10 +114,21 @@ export default function GallerySection({ category }: GallerySectionProps) {
         msnryRef.current = null
       }
     }
-  }, [category.images])
+  }, [category.images, visibleCount])
 
   const visibleImages = category.images.slice(0, visibleCount)
   const hasMore = visibleCount < category.images.length
+
+  // Re-layout masonry when more images are loaded
+  useEffect(() => {
+    if (msnryRef.current && visibleCount > 6) {
+      // Small delay to allow images to render
+      setTimeout(() => {
+        msnryRef.current?.reloadItems?.()
+        msnryRef.current?.layout?.()
+      }, 100)
+    }
+  }, [visibleCount])
 
   return (
     <div id={category.id} className="mb-32 scroll-mt-28">
@@ -162,7 +173,8 @@ export default function GallerySection({ category }: GallerySectionProps) {
                   width={img.width}
                   height={img.height}
                   className="w-full h-auto object-cover"
-                  loading="lazy"
+                  loading={i < 3 ? "eager" : "lazy"}
+                  priority={i < 3}
                   sizes="100vw"
                 />
 
@@ -230,7 +242,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
           }}
         >
           <div className="grid-sizer" style={{ width: columnWidth }} />
-          {category.images.map((img, i) => {
+          {visibleImages.map((img, i) => {
             const delay = i * 0.1
 
             return (
@@ -275,7 +287,9 @@ export default function GallerySection({ category }: GallerySectionProps) {
                   width={img.width}
                   height={img.height}
                   className="w-full h-auto object-cover"
-                  loading="lazy"
+                  loading={i < 3 ? "eager" : "lazy"}
+                  priority={i < 3}
+                  sizes="(min-width: 768px) 600px, 100vw"
                 />
 
                 {/* Hover overlay with gradient */}
@@ -310,6 +324,26 @@ export default function GallerySection({ category }: GallerySectionProps) {
             )
           })}
         </div>
+
+        {/* Load More Button - Desktop */}
+        {hasMore && (
+          <div className="flex justify-center mt-12">
+            <motion.button
+              onClick={loadMore}
+              className="group relative px-10 py-4 bg-linear-to-r from-green-700 to-green-600 text-white font-bold rounded-full shadow-xl overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Load More
+                <svg className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-linear-to-r from-green-600 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.button>
+          </div>
+        )}
       </section>
 
       {/* Lightbox */}

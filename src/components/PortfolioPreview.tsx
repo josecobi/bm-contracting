@@ -10,31 +10,31 @@ import { Lightbox } from "@/components/Lightbox";
 const projects = [
   {
     title: 'Modern Kitchen Renovation',
-    image: '/portfolio/preview/kitchen.jpg',
+    image: '/portfolio/preview/kitchen.webp',
   },
   {
     title: 'Luxury Bathroom Remodel',
-    image: '/portfolio/preview/bathroom.jpg',
+    image: '/portfolio/preview/bathroom.webp',
   },
   {
     title: 'Open-Concept Living',
-    image: '/portfolio/preview/livingroom.jpg',
+    image: '/portfolio/preview/livingroom.webp',
   },
   {
     title: 'Outdoor Patio & Deck',
-    image: '/portfolio/preview/deck.jpg',
+    image: '/portfolio/preview/deck.webp',
   },
   {
     title: 'Basement Entertainment Area',
-    image: '/portfolio/preview/basement.jpg',
+    image: '/portfolio/preview/basement.webp',
   },
   {
     title: 'Stairscase Makeover',
-    image: '/portfolio/preview/stairs.jpg',
+    image: '/portfolio/preview/stairs.webp',
   },
   // {
   //   title: 'Whole-Home Transformation',
-  //   image: '/portfolio/preview/wholehome.jpg',
+  //   image: '/portfolio/preview/wholehome.webp',
   // },
 ]
 

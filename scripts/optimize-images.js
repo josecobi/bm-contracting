@@ -10,7 +10,7 @@ const CONFIG = {
 
   // Quality settings
   jpegQuality: 85,
-  webpQuality: 85,
+  webpQuality: 80,
 
   // Directories
   inputDir: path.join(__dirname, '../public/portfolio'),
@@ -18,8 +18,11 @@ const CONFIG = {
   // File extensions to process
   extensions: ['.jpg', '.jpeg', '.png'],
 
+  // Convert to WebP (much better compression)
+  convertToWebP: true,
+
   // Create backup
-  createBackup: true,
+  createBackup: false, // Already have backup from first run
   backupDir: path.join(__dirname, '../public/portfolio-backup'),
 };
 
@@ -43,12 +46,6 @@ async function optimizeImage(filePath, relativePath) {
   }
 
   const sizeBefore = getFileSizeMB(filePath);
-
-  // Skip if already small
-  if (sizeBefore < 0.2) {
-    console.log(`⏭️  Skipping ${relativePath} (already optimized: ${sizeBefore}MB)`);
-    return;
-  }
 
   try {
     // Backup original
@@ -76,27 +73,46 @@ async function optimizeImage(filePath, relativePath) {
       };
     }
 
-    // Process based on format
-    if (ext === '.png') {
+    // Convert to WebP or optimize existing format
+    if (CONFIG.convertToWebP) {
+      const webpPath = filePath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+
       await image
         .resize(resizeOptions)
-        .png({ quality: 85, compressionLevel: 9 })
-        .toFile(filePath + '.tmp');
+        .webp({ quality: CONFIG.webpQuality })
+        .toFile(webpPath);
+
+      const sizeAfter = getFileSizeMB(webpPath);
+      const savings = ((sizeBefore - sizeAfter) / sizeBefore * 100).toFixed(1);
+
+      console.log(`✅ ${relativePath} → WebP`);
+      console.log(`   ${sizeBefore}MB → ${sizeAfter}MB (saved ${savings}%)`);
+
+      // Delete original after successful conversion
+      fs.unlinkSync(filePath);
     } else {
-      await image
-        .resize(resizeOptions)
-        .jpeg({ quality: CONFIG.jpegQuality, progressive: true })
-        .toFile(filePath + '.tmp');
+      // Process based on format (keep original format)
+      if (ext === '.png') {
+        await image
+          .resize(resizeOptions)
+          .png({ quality: 85, compressionLevel: 9 })
+          .toFile(filePath + '.tmp');
+      } else {
+        await image
+          .resize(resizeOptions)
+          .jpeg({ quality: CONFIG.jpegQuality, progressive: true })
+          .toFile(filePath + '.tmp');
+      }
+
+      // Replace original with optimized
+      fs.renameSync(filePath + '.tmp', filePath);
+
+      const sizeAfter = getFileSizeMB(filePath);
+      const savings = ((sizeBefore - sizeAfter) / sizeBefore * 100).toFixed(1);
+
+      console.log(`✅ ${relativePath}`);
+      console.log(`   ${sizeBefore}MB → ${sizeAfter}MB (saved ${savings}%)`);
     }
-
-    // Replace original with optimized
-    fs.renameSync(filePath + '.tmp', filePath);
-
-    const sizeAfter = getFileSizeMB(filePath);
-    const savings = ((sizeBefore - sizeAfter) / sizeBefore * 100).toFixed(1);
-
-    console.log(`✅ ${relativePath}`);
-    console.log(`   ${sizeBefore}MB → ${sizeAfter}MB (saved ${savings}%)`);
 
   } catch (error) {
     console.error(`❌ Error processing ${relativePath}:`, error.message);

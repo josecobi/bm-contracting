@@ -15,7 +15,7 @@ export const metadata: Metadata = generateMetadata({
     'remodeling results Maryland',
   ],
   canonical: '/portfolio/',
-  ogImage: '/portfolio/before-after/jpg/kitchen-before.jpg',
+  ogImage: '/portfolio/before-after/kitchen-before.webp',
   ogImageAlt: 'BM Contracting Before & After Portfolio',
 })
 

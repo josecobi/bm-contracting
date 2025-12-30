@@ -17,7 +17,7 @@ export const metadata: Metadata = generateMetadata({
     'before after remodeling',
   ],
   canonical: '/portfolio-gallery/',
-  ogImage: '/portfolio/portfolio-gallery/jpg/kitchen-003.jpg',
+  ogImage: '/portfolio/portfolio-gallery/jpg/kitchen-0000.webp',
   ogImageAlt: 'BM Contracting Portfolio Gallery - Home Remodeling Projects',
 })
 

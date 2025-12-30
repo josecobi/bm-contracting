@@ -60,6 +60,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image
+              key={isScrolled || !isHome ? 'light' : 'dark'}
               src={isScrolled || !isHome ? '/bm-logo-light.svg' : '/bm-logo-dark.svg'}
               alt="BM Contracting Logo"
               width={40}

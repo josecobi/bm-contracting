@@ -11,7 +11,11 @@ const CONFIG = {
   // Quality settings
   jpegQuality: 85,
   webpQuality: 80,
-  priorityImageQuality: 70, // Lower quality for priority images (faster load)
+  priorityImageQuality: 60, // Lower quality for priority images (faster load)
+
+  // Priority image dimensions (smaller = faster)
+  priorityMaxWidth: 1200,
+  priorityMaxHeight: 1200,
 
   // Directories
   inputDir: path.join(__dirname, '../public/portfolio'),
@@ -63,12 +67,18 @@ async function optimizeImage(filePath, relativePath) {
     const image = sharp(filePath);
     const metadata = await image.metadata();
 
+    // Check if priority image
+    const isPriorityImage = relativePath.includes('kitchen-0000');
+
     // Resize if needed
     let resizeOptions = {};
-    if (metadata.width > CONFIG.maxWidth || metadata.height > CONFIG.maxHeight) {
+    const maxW = isPriorityImage ? CONFIG.priorityMaxWidth : CONFIG.maxWidth;
+    const maxH = isPriorityImage ? CONFIG.priorityMaxHeight : CONFIG.maxHeight;
+
+    if (metadata.width > maxW || metadata.height > maxH) {
       resizeOptions = {
-        width: CONFIG.maxWidth,
-        height: CONFIG.maxHeight,
+        width: maxW,
+        height: maxH,
         fit: 'inside',
         withoutEnlargement: true,
       };
@@ -79,7 +89,6 @@ async function optimizeImage(filePath, relativePath) {
       const webpPath = filePath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
       // Use lower quality for priority images (first image in portfolio)
-      const isPriorityImage = relativePath.includes('kitchen-0000');
       const quality = isPriorityImage ? CONFIG.priorityImageQuality : CONFIG.webpQuality;
 
       await image

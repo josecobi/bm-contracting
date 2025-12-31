@@ -83,18 +83,20 @@ export default function PortfolioPreview() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3 }}
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
             >
               {/* Image Container */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-72 overflow-hidden bg-gray-100">
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={400}
                   height={300}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
 
                 {/* Gradient Overlay */}

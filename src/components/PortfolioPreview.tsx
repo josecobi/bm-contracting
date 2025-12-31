@@ -83,9 +83,10 @@ export default function PortfolioPreview() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
+              style={{ willChange: 'transform, opacity' }}
             >
               {/* Image Container */}
               <div className="relative h-72 overflow-hidden bg-gray-100">

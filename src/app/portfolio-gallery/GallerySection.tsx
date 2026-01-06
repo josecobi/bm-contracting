@@ -136,9 +136,8 @@ export default function GallerySection({ category }: GallerySectionProps) {
       <motion.div
         className="text-center mb-16"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           {category.title}
@@ -155,13 +154,13 @@ export default function GallerySection({ category }: GallerySectionProps) {
                 key={i}
                 className="relative w-full rounded-2xl shadow-xl overflow-hidden cursor-pointer group border border-gray-200"
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{
                   duration: 0.3,
                   ease: 'easeOut',
+                  delay: i * 0.05,
                 }}
-                viewport={{ once: true, amount: 0.05 }}
                 onClick={() => handleImageClick(i)}
               >
                 <Image
@@ -252,7 +251,7 @@ export default function GallerySection({ category }: GallerySectionProps) {
                   opacity: 0,
                   y: 10,
                 }}
-                whileInView={{
+                animate={{
                   opacity: 1,
                   y: 0,
                 }}
@@ -267,8 +266,8 @@ export default function GallerySection({ category }: GallerySectionProps) {
                 transition={{
                   duration: 0.3,
                   ease: 'easeOut',
+                  delay: i * 0.05,
                 }}
-                viewport={{ once: true, amount: 0.05 }}
                 onClick={() => handleImageClick(i)}
               >
                 <Image

@@ -66,9 +66,8 @@ export default function About() {
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
             <div className="w-20 h-1 bg-linear-to-r from-green-700 to-green-500 mx-auto rounded-full" />
@@ -76,10 +75,9 @@ export default function About() {
 
           <motion.div
             className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               At BM Contracting, we believe every renovation is an opportunity to bring new life to a space. With years of experience and a commitment to quality craftsmanship, our team works closely with clients to design and build renovations that reflect their vision, style, and needs. From small updates to full remodels, we prioritize reliability, transparency, and attention to detail, ensuring every project is completed with excellence.
@@ -94,9 +92,8 @@ export default function About() {
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
             <div className="w-20 h-1 bg-linear-to-r from-green-700 to-green-500 mx-auto rounded-full" />
@@ -105,10 +102,9 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 group hover:shadow-2xl hover:border-green-200 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
               whileHover={{ y: -8 }}
             >
               <div className="w-16 h-16 bg-linear-to-br from-green-700 to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -124,10 +120,9 @@ export default function About() {
 
             <motion.div
               className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 group hover:shadow-2xl hover:border-green-200 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
               whileHover={{ y: -8 }}
             >
               <div className="w-16 h-16 bg-linear-to-br from-green-700 to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -143,10 +138,9 @@ export default function About() {
 
             <motion.div
               className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 group hover:shadow-2xl hover:border-green-200 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
               whileHover={{ y: -8 }}
             >
               <div className="w-16 h-16 bg-linear-to-br from-green-700 to-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -175,9 +169,8 @@ export default function About() {
         <div className="relative max-w-4xl mx-auto text-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
               Ready to Transform Your Space?

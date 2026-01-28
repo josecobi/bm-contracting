@@ -56,8 +56,8 @@ export default function Header() {
   return (
     <header className={headerClasses}>
       {/* Preload both logos for instant switching */}
-      <link rel="preload" as="image" href="/bm-logo-dark.svg" />
-      <link rel="preload" as="image" href="/bm-logo-light.svg" />
+      <link rel="preload" as="image" href="/bm-llc-logo-dark.svg" />
+      <link rel="preload" as="image" href="/bm-llc-logo-light.svg" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -65,7 +65,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               key={isScrolled || !isHome ? 'light' : 'dark'}
-              src={isScrolled || !isHome ? '/bm-logo-light.svg' : '/bm-logo-dark.svg'}
+              src={isScrolled || !isHome ? '/bm-llc-logo-light.svg' : '/bm-llc-logo-dark.svg'}
               alt="BM Contracting Logo"
               width={40}
               height={40}

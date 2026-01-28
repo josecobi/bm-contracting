@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 const features = [
   {
     title: 'Licensed & Insured',
-    description: 'We meet all regulations and carry full insurance for peace of mind.',
+    description: 'Maryland Home Improvement License and full insurance for peace of mind.',
     icon: ShieldCheck,
   },
   {

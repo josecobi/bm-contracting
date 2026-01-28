@@ -1,6 +1,6 @@
 # BM Contracting LLC Website
 
-A modern, high-performance marketing website for BM Contracting LLC - a professional home remodeling contractor serving Maryland and surrounding areas.
+A modern, high-performance marketing website for BM Contracting LLC - a professional home remodeling contractor serving Maryland, Washington DC and Virginia.
 
 ## Overview
 
@@ -197,7 +197,7 @@ SEO settings are centralized in `src/lib/seo.ts`. Update the `SITE_CONFIG` objec
 **BM Contracting LLC**
 Phone: (301) 351-5379
 Email: bm.ubarahona@gmail.com
-Location: Maryland & Surrounding Areas
+Location: Maryland, Washington DC and Virginia
 Experience: 20+ years in home remodeling
 
 ## License

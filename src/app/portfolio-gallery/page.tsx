@@ -7,7 +7,7 @@ import { generateMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = generateMetadata({
   title: 'Portfolio Gallery - View Our Remodeling Projects',
-  description: 'Explore BM Contracting LLC\'s portfolio of stunning home renovation projects in Maryland. Browse our work in kitchen remodels, bathroom renovations, basement finishing, and more. 50+ completed projects.',
+  description: 'Explore BM Contracting LLC\'s portfolio of stunning home renovation projects in Maryland. Browse our work in kitchen remodels, bathroom renovations, basement finishing, and more. 1.000+ completed projects.',
   keywords: [
     'remodeling portfolio Maryland',
     'kitchen renovation gallery',
@@ -78,7 +78,7 @@ export default function PortfolioGalleryPage() {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 md:gap-12 mt-12">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">50+</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-1">1000+</div>
                 <div className="text-sm md:text-base text-green-100/80">Projects Completed</div>
               </div>
               <div className="w-px h-12 bg-white/20 hidden sm:block" />

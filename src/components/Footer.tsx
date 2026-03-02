@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { MdEmail } from 'react-icons/md'
+import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md'
 
 export default function Footer() {
   const navLinks = [
@@ -47,35 +47,31 @@ export default function Footer() {
         </nav>
 
         {/* Contact / Social */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <h3 className="font-semibold mb-1">Get in Touch</h3>
-         <div className="flex gap-4 mt-1">
-            <a
-                href="mailto:bm.ubarahona@gmail.com"
-                className="hover:text-white"
-                aria-label="Email"
-            >
-                <MdEmail size={20} />
-            </a>
-            {/* <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-                aria-label="Facebook"
-            >
-                <SiFacebook size={20} />
-            </a>
-            <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-                aria-label="Instagram"
-            >
-                <SiInstagram size={20} />
-            </a> */}
-            </div>
+          <a
+            href="tel:+13013515379"
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
+            aria-label="Phone"
+          >
+            <MdPhone size={18} className="text-amber-500 shrink-0" />
+            (301) 351-5379
+          </a>
+          <a
+            href="mailto:bm.ubarahona@gmail.com"
+            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition"
+            aria-label="Email"
+          >
+            <MdEmail size={18} className="text-amber-500 shrink-0" />
+            bm.ubarahona@gmail.com
+          </a>
+          <div className="flex items-center gap-2 text-sm text-gray-400">
+            <MdLocationOn size={18} className="text-amber-500 shrink-0" />
+            <span>
+              <span className="block text-gray-300 font-medium text-xs uppercase tracking-wide">Service Area</span>
+              Maryland &amp; Surrounding Areas
+            </span>
+          </div>
         </div>
       </div>
 

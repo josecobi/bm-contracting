@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Lightbox } from '@/components/Lightbox'
@@ -17,19 +17,21 @@ export default function GallerySection({ category }: GallerySectionProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [visibleCount, setVisibleCount] = useState(12)
-  const [itemWidths, setItemWidths] = useState<Record<number, number>>({})
 
   const columnWidth = 300
   const gutter = 16
 
-  // Calculate item widths based on span
-  const calculateItemWidths = useCallback(() => {
+  // Item widths are derived purely from `span`, so compute them during render
+  // instead of in an effect. Setting them from an effect meant the first commit
+  // painted every item at the fallback width, and Masonry could measure that
+  // stale pass before the corrected widths landed.
+  const itemWidths = useMemo(() => {
     const widths: Record<number, number> = {}
     category.images.forEach((img, i) => {
       const span = img.span || 1
       widths[i] = columnWidth * span + gutter * (span - 1)
     })
-    setItemWidths(widths)
+    return widths
   }, [category.images, columnWidth, gutter])
 
   const handleImageClick = (index: number) => {
@@ -41,20 +43,52 @@ export default function GallerySection({ category }: GallerySectionProps) {
     setVisibleCount(prev => Math.min(prev + 12, category.images.length))
   }
 
-  // Calculate initial widths
-  useEffect(() => {
-    calculateItemWidths()
-  }, [calculateItemWidths])
-
   // Masonry setup for desktop
   useEffect(() => {
-    if (!gridRef.current) return
+    const grid = gridRef.current
+    if (!grid) return
+
+    let cancelled = false
+    let resizeTimer: ReturnType<typeof setTimeout> | undefined
+    let rafId = 0
+    let observer: ResizeObserver | null = null
+
+    const relayout = () => {
+      if (cancelled) return
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        if (!cancelled) msnryRef.current?.layout?.()
+      })
+    }
+
+    // Handle window resize with debounce
+    const handleResize = () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
+        // Update item widths directly in DOM before layout
+        const items = grid.querySelectorAll<HTMLElement>('.grid-item')
+        items.forEach((item, i) => {
+          const span = category.images[i]?.span || 1
+          item.style.width = `${columnWidth * span + gutter * (span - 1)}px`
+        })
+
+        requestAnimationFrame(() => {
+          if (cancelled) return
+          msnryRef.current?.reloadItems?.()
+          msnryRef.current?.layout?.()
+        })
+      }, 100)
+    }
 
     // Dynamically import Masonry only on client side
     import('masonry-layout').then((MasonryModule) => {
+      // On a back-navigation the module is already in the bundler cache, so this
+      // resolves a microtask after mount instead of after a network round trip.
+      if (cancelled || !gridRef.current) return
+
       const Masonry = MasonryModule.default
 
-      const msnryInstance = new Masonry(gridRef.current!, {
+      msnryRef.current = new Masonry(grid, {
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         gutter,
@@ -63,56 +97,33 @@ export default function GallerySection({ category }: GallerySectionProps) {
         fitWidth: true,
       })
 
-      msnryRef.current = msnryInstance
-
-      // Re-layout after image load
-      const imgs = gridRef.current!.querySelectorAll('img')
-      imgs.forEach((img) => {
-        img.addEventListener('load', () => {
-          msnryRef.current?.layout?.()
-        })
+      // Images restored from cache are already `complete` and will never fire
+      // `load` again, so a load listener alone leaves the first (wrong)
+      // measurement in place forever. Only wait on images still in flight.
+      grid.querySelectorAll('img').forEach((img) => {
+        if (img.complete) return
+        img.addEventListener('load', relayout)
+        img.addEventListener('error', relayout)
       })
 
-      // Handle window resize with debounce
-      let resizeTimer: NodeJS.Timeout
-      const handleResize = () => {
-        clearTimeout(resizeTimer)
-        resizeTimer = setTimeout(() => {
-          // Update item widths directly in DOM before layout
-          const items = gridRef.current?.querySelectorAll('.grid-item')
-          items?.forEach((item, i) => {
-            const img = category.images[i]
-            const span = img?.span || 1
-            const width = columnWidth * span + gutter * (span - 1)
-            ;(item as HTMLElement).style.width = `${width}px`
-          })
+      // Safety net: any later size change — a lazy image decoding, a cached
+      // image swapping in, fonts settling — re-runs the layout. This is what
+      // makes the remount case self-correcting rather than dependent on timing.
+      observer = new ResizeObserver(relayout)
+      grid.querySelectorAll('.grid-item').forEach((item) => observer?.observe(item))
 
-          requestAnimationFrame(() => {
-            msnryRef.current?.reloadItems?.()
-            msnryRef.current?.layout?.()
-          })
-        }, 100)
-      }
+      relayout()
       window.addEventListener('resize', handleResize)
-
-      // Store cleanup function
-      const cleanup = () => {
-        clearTimeout(resizeTimer)
-        window.removeEventListener('resize', handleResize)
-        msnryRef.current?.destroy?.()
-        msnryRef.current = null
-      }
-
-      // Return cleanup
-      return cleanup
     })
 
-    // Cleanup if component unmounts before Masonry loads
     return () => {
-      if (msnryRef.current) {
-        msnryRef.current?.destroy?.()
-        msnryRef.current = null
-      }
+      cancelled = true
+      cancelAnimationFrame(rafId)
+      clearTimeout(resizeTimer)
+      observer?.disconnect()
+      window.removeEventListener('resize', handleResize)
+      msnryRef.current?.destroy?.()
+      msnryRef.current = null
     }
   }, [category.images, visibleCount])
 

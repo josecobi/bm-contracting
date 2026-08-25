@@ -27,8 +27,10 @@ const CONFIG = {
   convertToWebP: true,
 
   // Create backup
-  createBackup: false, // Already have backup from first run
-  backupDir: path.join(__dirname, '../public/portfolio-backup'),
+  // NOTE: must live OUTSIDE public/ — anything under public/ is copied verbatim
+  // into the static export and shipped to production.
+  createBackup: true,
+  backupDir: path.join(__dirname, '../image-originals'),
 };
 
 // Ensure backup directory exists

@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# pre-optimization image originals (kept locally, never deployed)
+/image-originals/
+
 # documentation notes
 /notes/
 CLAUDE.md

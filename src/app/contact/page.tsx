@@ -1,19 +1,8 @@
-'use client'
-
 import { Mail, MapPin, Phone } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import { ContactPageSchema, BreadcrumbSchema } from '@/components/StructuredData'
+import HeroPattern from '@/components/HeroPattern'
 
 export default function Contact() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
   return (
     <main className="bg-gray-50 min-h-screen">
       {/* Structured Data */}
@@ -25,14 +14,7 @@ export default function Contact() {
 
       {/* Hero Section */}
       <section className="relative bg-linear-to-br from-green-900 via-green-800 to-green-700 text-white overflow-hidden">
-        {/* Background Pattern - Simplified for mobile */}
-        {!isMobile && (
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }} />
-          </div>
-        )}
+        <HeroPattern />
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-green-900/50 via-transparent to-transparent" />

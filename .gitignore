@@ -46,3 +46,9 @@ next-env.d.ts
 # documentation notes
 /notes/
 CLAUDE.md
+
+# claude code: local settings and downloaded skill content
+# (skills-lock.json is kept tracked; it's what makes these reproducible)
+.claude/settings.local.json
+.claude/skills/
+/.agents/skills/
